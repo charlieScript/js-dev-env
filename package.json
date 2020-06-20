@@ -7,14 +7,15 @@
 	"version": "1.0.0",
 	"description": "Javascript Development Enviroment",
 	"scripts": {
-        "prestart": "node buildScripts/startMessage.js",
+		"prestart": "babel-node buildScripts/startMessage.js",
 		"start": "npm-run-all --parallel start:server",
-		"start:server": "node buildScripts/srcServer.js"
+		"start:server": "babel-node buildScripts/srcServer.js"
 	},
 	"dependencies": {},
 	"devDependencies": {
 		"@babel/cli": "^7.10.1",
 		"@babel/core": "^7.10.2",
+		"@babel/node": "^7.10.3",
 		"@babel/preset-env": "^7.10.2",
 		"@babel/register": "^7.10.1",
 		"babel-loader": "^8.1.0",
