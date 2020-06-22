@@ -1,30 +1,19 @@
-import { path } from "path";
+import path from "path";
 
-module.exports = {
-	debug: true,
+export default {
+	mode: "development",
 	devtool: "inline-source-map",
-	noInfo: false,
+	entry: [path.resolve(__dirname, "src/index")],
 	target: "web",
-	entry: {
-		path: path.resolve(__dirname, "src/index")
-	},
 	output: {
 		path: path.resolve(__dirname, "src"),
-		pubicPath: "/",
+		publicPath: "/",
 		filename: "bundle.js"
 	},
-	plugins: [],
 	module: {
 		rules: [
-			{
-				test: /\.js?$/,
-				exclude: /node_modules/,
-				loader: "babel-loader"
-			},
-			{
-				test: /\.css$/,
-				use: ["style-loader", "css-loader"]
-			}
+			{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+			{ test: /\.css$/, use: ["style-loader", "css-loader"] }
 		]
 	}
 };
