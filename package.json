@@ -8,8 +8,10 @@
 	"description": "Javascript Development Enviroment",
 	"scripts": {
 		"prestart": "babel-node buildScripts/startMessage.js",
-		"start": "npm-run-all --parallel start:server",
-		"start:server": "babel-node buildScripts/srcServer.js"
+		"start": "npm-run-all --parallel start:server lint:watch",
+		"start:server": "babel-node buildScripts/srcServer.js",
+		"lint": "esw webpack.config.* src buildScripts --color",
+		"lint:watch": "npm run lint -- --watch"
 	},
 	"dependencies": {},
 	"devDependencies": {
